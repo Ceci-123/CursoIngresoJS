@@ -1,23 +1,26 @@
 function mostrar()
 {
-	//Genero el número RANDOM entre 1 y 10 
+	//Maria Cecilia Calanna
+	//trabajo 10 del IF version 2!!!!!
+	
 
 	let examen;
-	examen = Math.round(Math.random()*10);
+	let mensaje;
+	examen = Math.floor(Math.random()*10) + 1;
 
 	if(examen > 8)
 	{
-		alert("Excelente");
+		mensaje = "Excelente! Tu nota es ";
 
-	} else if(examen > 4 && examen < 9)
+	} else if(examen < 4)
 	{
-		alert("Aprobo")
+		mensaje = "Vamos que la proxima se puede! Te sacaste"
 
 	}else
 	{
-		alert("Vamos que se puede")
+		mensaje = "aprobaste!!! "
 	}
 
-
+    alert(mensaje + examen);
 
 }//FIN DE LA FUNCIÓN
