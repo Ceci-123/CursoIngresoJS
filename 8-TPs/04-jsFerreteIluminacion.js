@@ -34,17 +34,19 @@ function CalcularPrecio ()
     } // fin del 6
     if (cantidadLamparas ==5)  // compra 5
     {
-        if(marca = "ArgentinaLuz") // la marca es argentinaluz
+        if(marca == "ArgentinaLuz") // la marca es argentinaluz
         {
            descuento = 40; // descuento 40%
-        } else 
+        }
+        else
         {
-           descuento = 30; // descuento es 30%
+           descuento = 30;
+            // descuento es 30%
         }
     } // fin si son 5 lamparitas
     if(cantidadLamparas ==4) // si compra 4
     {
-        if(marca = "ArgentinaLuz") // marca "ArgentinaLuz" o “FelipeLamparas
+        if(marca == "ArgentinaLuz" || marca == "FelipeLamparas") // marca "ArgentinaLuz" o “FelipeLamparas
         {
            descuento = 25;  // el descuento es 25%
         } else
@@ -55,12 +57,12 @@ function CalcularPrecio ()
     } // fin si compra 4
     if(cantidadLamparas ==3)  // si compra 3
     {
-        if(marca = "ArgentinaLuz" ) // "ArgentinaLuz
+        if(marca == "ArgentinaLuz" ) // "ArgentinaLuz
         {
            descuento = 15; // descuento del 15
 
         }
-        if(marca = "FelipeLamparas") // Felipe
+        if(marca == "FelipeLamparas") // Felipe
         {
            descuento = 10; // descuento 10
         } else 
@@ -69,7 +71,14 @@ function CalcularPrecio ()
         }
     }
     console.log(descuento);
-    precioFinal = precioFinal + precioFinal * descuento /100;
+    precioFinal = precioFinal - ( descuento /100);
+
+    if(precioFinal > 120)
+    {
+        precioFinal = precioFinal + 10/100;
+        document.getElementById('txtIdprecioDescuento').value = precioFinal + "usted debe pagar";
+        console.log("estoy dentro del bucle");
+    }
     document.getElementById('txtIdprecioDescuento').value = precioFinal;
     
 }
