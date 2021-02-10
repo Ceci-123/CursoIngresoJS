@@ -9,69 +9,67 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
  */
 
- // Cecilia Calanna Iluminacion A y B version 2
+ 
 function CalcularPrecio () 
 {
- 	let cantidadLamparas;
-    const PRECIO_LAMPARA = 35;
-    let mostrarPrecio;
+    let cantidadLamparas;
     let marca;
-    let descuentoLuz;
-    let descuentoOtras;
-    let descuentoCantidad;
-    let DESCUENTO_LUZ_FELIPE = 0.25;
-    let descuentoCuatroLamparas;
+    let precioFinal;
+    const PRECIO_LAMPARITA = 35;
+    let descuento; 
 
+    cantidadLamparas = parseInt(document.getElementById('txtIdCantidad').value);
+    marca = document.getElementById('Marca').value;
+    precioFinal = PRECIO_LAMPARITA * cantidadLamparas;
+    
 
-    descuentoCuatroLamparas = 0.20;
-    descuentoLuz = 0.4;
-    descuentoOtras = 0.3;
-    descuentoCantidad = 0.5;
+    console.log(cantidadLamparas);
+    console.log(marca);
+    descuento = 0;
+    
 
+    if(cantidadLamparas >6)  //compra 6 o mas lamp
+    {
+       descuento = 50; // descuento 50%
+    } // fin del 6
+    if (cantidadLamparas ==5)  // compra 5
+    {
+        if(marca = "ArgentinaLuz") // la marca es argentinaluz
+        {
+           descuento = 40; // descuento 40%
+        } else 
+        {
+           descuento = 30; // descuento es 30%
+        }
+    } // fin si son 5 lamparitas
+    if(cantidadLamparas ==4) // si compra 4
+    {
+        if(marca = "ArgentinaLuz") // marca "ArgentinaLuz" o “FelipeLamparas
+        {
+           descuento = 25;  // el descuento es 25%
+        } else
+        {
+           descuento = 20; // descuento del 20 %
+        }
 
-     cantidadLamparas = parseFloat(document.getElementById('txtIdCantidad').value);
-     mostrarPrecio = cantidadLamparas * PRECIO_LAMPARA;
-     marca = document.getElementById('Marca').value;
-     console.log(marca);
-     console.log(cantidadLamparas);
+    } // fin si compra 4
+    if(cantidadLamparas ==3)  // si compra 3
+    {
+        if(marca = "ArgentinaLuz" ) // "ArgentinaLuz
+        {
+           descuento = 15; // descuento del 15
 
-     if(cantidadLamparas > 5)
-     {
-         mostrarPrecio = mostrarPrecio * descuentoCantidad;
-     } 
-     else 
-     {
-         if(cantidadLamparas == 5)
-         {
-            if(marca == "ArgentinaLuz")
-            {
-                mostrarPrecio = mostrarPrecio * descuentoLuz;
-            }
-            else
-            {
-                mostrarPrecio = mostrarPrecio * descuentoOtras;
-
-            }
-         }
-         else
-         {
-             if(cantidadLamparas == 4)
-             {
-                if(marca == "ArgentinaLuz" || marca == "FelipeLamparas")
-                {
-                    mostrarPrecio = mostrarPrecio * DESCUENTO_LUZ_FELIPE;
-                }
-                else
-                {
-                    mostrarPrecio = mostrarPrecio * descuentoCuatroLamparas;
-                }
-             } // fin == 4
-
-         } // fin == 5
-               
-     }   // fin > 5  
-
-     document.getElementById('txtIdprecioDescuento').value = mostrarPrecio;
-
-       
+        }
+        if(marca = "FelipeLamparas") // Felipe
+        {
+           descuento = 10; // descuento 10
+        } else 
+        {
+           descuento = 5; // descuento 5
+        }
+    }
+    console.log(descuento);
+    precioFinal = precioFinal + precioFinal * descuento /100;
+    document.getElementById('txtIdprecioDescuento').value = precioFinal;
+    
 }
