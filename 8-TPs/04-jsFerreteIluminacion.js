@@ -78,6 +78,7 @@ function CalcularPrecio ()
         precioFinal = precioFinal + 10/100;
         document.getElementById('txtIdprecioDescuento').value = precioFinal + "usted debe pagar";
         console.log("estoy dentro del bucle");
+        alert("esto es el alert");
     }
     document.getElementById('txtIdprecioDescuento').value = precioFinal;
     
