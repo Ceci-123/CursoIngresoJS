@@ -17,6 +17,7 @@ function CalcularPrecio ()
     let precioFinal;
     const PRECIO_LAMPARITA = 35;
     let descuento; 
+    let ingresosBrutos;
 
     cantidadLamparas = parseInt(document.getElementById('txtIdCantidad').value);
     marca = document.getElementById('Marca').value;
@@ -57,7 +58,7 @@ function CalcularPrecio ()
     } // fin si compra 4
     if(cantidadLamparas ==3)  // si compra 3
     {
-        if(marca == "ArgentinaLuz" ) // "ArgentinaLuz
+        if(marca == "ArgentinaLuz") // "ArgentinaLuz
         {
            descuento = 15; // descuento del 15
 
@@ -73,13 +74,15 @@ function CalcularPrecio ()
     console.log(descuento);
     precioFinal = precioFinal - ( descuento /100);
 
+    document.getElementById('txtIdprecioDescuento').value = precioFinal + "$";
+
     if(precioFinal > 120)
     {
-        precioFinal = precioFinal + 10/100;
-        document.getElementById('txtIdprecioDescuento').value = precioFinal + "usted debe pagar";
-        console.log("estoy dentro del bucle");
-        alert("esto es el alert");
+        ingresosBrutos = precioFinal * 10/100;
+        precioFinal = precioFinal + ingresosBrutos;
+
+        document.getElementById('txtIdprecioDescuento').value = precioFinal + "$  IIBB usted pago $ " + ingresosBrutos;
+        
     }
-    document.getElementById('txtIdprecioDescuento').value = precioFinal;
     
 }
