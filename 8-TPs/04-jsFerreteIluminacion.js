@@ -11,8 +11,91 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
  
 function CalcularPrecio () 
-{
-    let cantidadLamparas;
+{ 
+   let cantidadDeLamparas;
+   let marca;
+   let precioFinal;
+   const PRECIO_LAMPARITA = 35;
+   let descuento;
+
+   cantidadDeLamparas = parseInt(document.getElementById('txtIdCantidad').value);
+   marca = document.getElementById('Marca').value;
+   descuento = 0;
+   precioFinal = cantidadDeLamparas * PRECIO_LAMPARITA;
+   document.getElementById('txtIdprecioDescuento').value = precioFinal;
+
+   if(cantidadDeLamparas == 6) // si compra 6 o mas
+   {
+      // descuento 50 %
+      descuento = 0.50;
+   }  // fin if de 6 lamparitas
+   
+   if(cantidadDeLamparas == 5) // si compra 5
+   {
+      switch(marca)
+      {
+         case "ArgentinaLuz":  // descuento 40 %
+            descuento = 0.40;
+           
+         break;
+         default:  // descuento 30 %
+            descuento = 0.30;
+            
+         break;   
+      }
+
+   } // fin if de 5 lamparitas
+
+   if(cantidadDeLamparas == 4) // si compra 4
+   {
+      switch(marca)
+      {
+         case "ArgentinaLuz":
+         case "FelipeLamparas":
+            descuento = 0.25;
+           
+         break;
+         default:
+             descuento = 0.20;
+            
+         break;
+      }
+
+   } // fin if de 4 lamparitas
+
+   if(cantidadDeLamparas == 3) // si compra 3
+   {
+      switch(marca)
+      {
+         case "ArgentinaLuz":
+            descuento = 0.15;
+           
+         break;
+         case "FelipeLamparas":
+            descuento = 0.10;
+           
+         break;
+         default:
+            descuento = 0.05;
+           
+         break;
+      }
+
+   } // fin if de 3 lamparitas
+
+   precioFinal = precioFinal + precioFinal *descuento;
+
+   if(precioFinal > 120) // si se debe agregar IIBB
+   {
+     precioFinal = precioFinal + precioFinal * 0.10;
+     document.getElementById('txtIdprecioDescuento').value = "usted esta pagando IIBB" + precioFinal;
+   } // fin if de IIBB
+   
+  
+   
+   // ****************************************** desde aca esta hecho con IF
+   
+    /* let cantidadLamparas;
     let marca;
     let precioFinal;
     const PRECIO_LAMPARITA = 35;
@@ -84,5 +167,5 @@ function CalcularPrecio ()
         document.getElementById('txtIdprecioDescuento').value = precioFinal + "$  IIBB usted pago $ " + ingresosBrutos;
         
     }
-    
+     */
 }
