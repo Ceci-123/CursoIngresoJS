@@ -12,7 +12,81 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  
 function CalcularPrecio () 
 { 
+
    let cantidadDeLamparas;
+   let marca;
+   let precioFinal;
+   const PRECIO_LAMPARITA = 35;
+
+   cantidadDeLamparas = parseInt(document.getElementById('txtIdCantidad').value);
+   marca = document.getElementById('Marca').value;
+   precioFinal = cantidadDeLamparas * PRECIO_LAMPARITA;
+   console.log(cantidadDeLamparas);
+   console.log(marca);
+
+   switch(cantidadDeLamparas) 
+   {
+      case 6: // si compra 6 
+        precioFinal = precioFinal * 0.5 + precioFinal;    // descuento del 50
+        console.log("compra 6 lamparitas");        
+      break;  
+      case 5: // si compra 5
+          switch(marca)
+          {
+             case "ArgentinaLuz":
+               precioFinal = precioFinal * 0.4 + precioFinal;  
+               console.log("compra 5 lamparitas ArgLuz"); 
+             break;
+             default:
+               precioFinal = precioFinal * 0.3 + precioFinal;  
+               console.log("compra 5 lamparitas otra marca"); 
+             break;   
+          }
+      break;
+      case 4: // si compra 4
+          switch(marca)
+          {
+             case "ArgentinaLuz":
+             case "FelipeLamparas":
+               precioFinal = precioFinal * 0.25 + precioFinal;  
+               console.log("compra 4 lamparitas argen o felipe"); 
+             break;
+             default:
+               precioFinal = precioFinal * 0.20 + precioFinal;  
+               console.log("compra 4 lamparitas de otra marca");
+             break;  
+
+          }
+
+      break;
+      case 3:  // si compra 3
+         switch(marca)
+         {
+            case "ArgentinaLuz":
+              
+               precioFinal = precioFinal * 0.15 + precioFinal;  
+               console.log("compra 3 lamparitas argen");
+             break;  
+             case "FelipeLamparas": 
+             
+               precioFinal = precioFinal * 0.10 + precioFinal;  
+               console.log("compra 4 lamparitas argen");
+             break;  
+             default:
+               precioFinal = precioFinal * 0.05 + precioFinal;  
+               console.log("compra 3 lamparitas de otra marca");
+             break;  
+         }
+      break;    
+
+   }
+
+   document.getElementById('txtIdprecioDescuento').value = precioFinal;
+
+  
+  // usando if y swich ******************************************************
+  
+  /*  let cantidadDeLamparas;
    let marca;
    let precioFinal;
    const PRECIO_LAMPARITA = 35;
@@ -90,7 +164,7 @@ function CalcularPrecio ()
      precioFinal = precioFinal + precioFinal * 0.10;
      document.getElementById('txtIdprecioDescuento').value = "usted esta pagando IIBB" + precioFinal;
    } // fin if de IIBB
-   
+   */ 
   
    
    // ****************************************** desde aca esta hecho con IF
