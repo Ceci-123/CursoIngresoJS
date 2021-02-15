@@ -8,7 +8,7 @@ var ColorSecreto;
 var tiempoInicio;
 function comenzar()
 {
-
+    document.getElementById('txtIdColorElegido').value = "Mira el color";
 	
 
 }//FIN DE LA FUNCIÓN
