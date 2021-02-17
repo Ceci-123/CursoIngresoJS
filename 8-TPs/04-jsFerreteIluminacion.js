@@ -9,11 +9,84 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
  */
 
- 
+
+
 function CalcularPrecio () 
 { 
 
+    // switch de cantidad con if de marca
+    // Cecilia Calanna
+
    let cantidadDeLamparas;
+   let precioLampara;
+   let precioFinal;
+   let marcaLampara;
+   let descuento;
+
+   precioLampara = 35;
+   cantidadDeLamparas = parseInt(document.getElementById('txtIdCantidad').value);
+   marcaLampara = document.getElementById('Marca').value;
+   precioFinal = cantidadDeLamparas * precioLampara;
+
+   switch(cantidadDeLamparas)
+   {
+      case 6:
+         descuento = 50; // descuento del 50
+      break;
+      case 5:
+         if(marcaLampara == "ArgentinaLuz")
+         {
+            descuento = 40;//   descuento del 40 %
+         }
+         else 
+         {
+            descuento = 30;//   descuento es del 30%.
+
+         }
+      break;
+      case 4:
+         if(marcaLampara == "ArgentinaLuz" || marcaLampara == "FelipeLamparas") // marca "ArgentinaLuz" o “FelipeLamparas”
+         {
+            descuento = 25;// descuento del 25 % 
+         }
+         else 
+         {
+            descuento = 20;   //    y otra marca el descuento es del 20%.
+         }
+         
+      break;
+      case 3:
+         if(marcaLampara == "ArgentinaLuz")  // marca "ArgentinaLuz"
+         {
+            descuento = 15;   // el descuento es del 15%
+         }
+         else if(marcaLampara == "FelipeLamparas") // si es “FelipeLamparas”
+         {
+            descuento = 10;   // se hace un descuento del 10 %
+         }
+         else 
+         {
+            descuento = 5; //  y si es de otra marca un 5%.
+
+         }
+      break;
+      case 2:
+      case 1:
+         descuento = 0;
+      break;
+      default:
+         descuento = 50;// descuento del 50
+      break;   
+
+   } // fin del switch de cantidad
+   precioFinal = precioFinal * descuento - precioFinal;
+   document.getElementById('txtIdprecioDescuento').value = precioFinal;
+   console.log(precioFinal);
+
+
+
+
+  /*  let cantidadDeLamparas;
    let marca;
    let precioFinal;
    const PRECIO_LAMPARITA = 35;
@@ -77,16 +150,23 @@ function CalcularPrecio ()
                console.log("compra 3 lamparitas de otra marca");
              break;  
          }
-      break;    
+      break; 
+      default: 
+         precioFinal = precioFinal;
+      break;      
 
    }
 
    document.getElementById('txtIdprecioDescuento').value = precioFinal;
-
+ */
   
   // usando if y swich ******************************************************
   
-  /*  let cantidadDeLamparas;
+  /* 
+  
+   // Cecilia Calanna if con switch
+
+   let cantidadDeLamparas;
    let marca;
    let precioFinal;
    const PRECIO_LAMPARITA = 35;

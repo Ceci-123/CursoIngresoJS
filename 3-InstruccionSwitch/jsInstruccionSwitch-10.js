@@ -1,3 +1,6 @@
+// Cecilia Calanna
+// switch 10
+
 function mostrar()
 {
 	let estacionIngresada = document.getElementById('txtIdEstacion').value;

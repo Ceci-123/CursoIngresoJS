@@ -1,13 +1,20 @@
+// Cecilia Calanna
+// while 06
+
 function mostrar()
 {
-	var contador;
-	var acumulador;
-	var numeroIngresado;
-
+	let contador;
+	let acumulador;
+	
 	contador=0;
 	acumulador=0;
+
+	while(contador < 5)
+	{
+		acumulador = acumulador + parseInt(prompt("ingrese un numero"));
+		contador = contador + 1;
+	}
 	
-	
-	txtIdSuma.value=acumulador;
-	txtIdPromedio.value=acumulador/5;
+	document.getElementById('txtIdSuma').value=acumulador;
+	document.getElementById('txtIdPromedio').value=acumulador/contador;
 }//FIN DE LA FUNCIÓN
