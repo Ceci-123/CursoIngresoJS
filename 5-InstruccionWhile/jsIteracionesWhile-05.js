@@ -10,7 +10,8 @@ function mostrar()
 	let sexoIngresado;
 	sexoIngresado = prompt("ingrese f ó m .");
 
-	while(sexoIngresado != "f" && sexoIngresado != "m")
+	 while(sexoIngresado != "f" && sexoIngresado != "m")
+	
 	{
 		sexoIngresado = prompt("Error !  ingrese f ó m .");
 		console.log(sexoIngresado);

@@ -7,6 +7,16 @@ while 03
 function mostrar()
 {
 	let claveIngresada;
+
+	do
+	{
+		claveIngresada = prompt("ingrese la clave.");
+
+	} while(claveIngresada != "utn750");
+
+
+
+	/* let claveIngresada;
 	claveIngresada = prompt("ingrese el número clave.");
 	
 	while(claveIngresada != "utn750")
@@ -14,6 +24,6 @@ function mostrar()
 		claveIngresada = prompt("clave erronea, ingrese nuevamente");
 		
 	} 
-	alert("bienvenidx");
+	alert("bienvenidx"); */
 	
 }//FIN DE LA FUNCIÓN
