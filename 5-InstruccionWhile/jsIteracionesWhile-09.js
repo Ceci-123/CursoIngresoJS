@@ -25,26 +25,26 @@ function mostrar()
 			console.log(numeroMinimo);
 			console.log(banderaDelPrimero);
 
-		} else  
+		}
+		
+		// no es la primera vez que paso
+		if(numeroIngresado > numeroMaximo) // el que ingreso es mayor al maximo
 		{
-			// no es la primera vez que paso
-			if(numeroIngresado > numeroMaximo) // el que ingreso es mayor al maximo
+			// el que ingreso es mi nuevo maximo
+			numeroMaximo = numeroIngresado;
+			console.log(numeroMaximo);
+		} else  // el que ingreso es menor al maximo
 			{
-				// el que ingreso es mi nuevo maximo
-				numeroIngresado = numeroMaximo;
-				console.log(numeroMaximo);
-			} else if(numeroIngresado < numeroMinimo) // el que ingreso es menor al minimo
-				{
-					// el que ingreso es mi nuevo minimo
-					numeroIngresado = numeroMinimo;
+				if(numeroIngresado < numeroMinimo)  // el que ingreso es menor que el minimo
+				// el que ingreso es mi nuevo minimo
+					numeroMinimo = numeroIngresado;
 					console.log(numeroMinimo);
-				}
+			}
 			
-
-		} // aca termina el if else
 		
 		respuesta=prompt("desea continuar?");
 	}
 	txtIdMaximo.value=numeroMaximo;
 	txtIdMinimo.value=numeroMinimo;
-}//FIN DE LA FUNCIÓN
+ 
+}   //FIN DE LA FUNCIÓN
