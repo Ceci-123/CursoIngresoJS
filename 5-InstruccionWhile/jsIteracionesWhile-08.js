@@ -10,6 +10,7 @@ function mostrar()
 	let respuesta;
 	let sumaPositivos;
 	let multiplicacionNegativos;
+	let flag = 0;
 	
 	numero=0;
 	sumaPositivos=0;
@@ -25,11 +26,18 @@ function mostrar()
 		} else 
 		{
 			multiplicacionNegativos = multiplicacionNegativos * numero;  // es negativo
+			flag = 1;
 		}
 		respuesta = prompt("desea seguir ingresando numeros?");
 	}
 
 	document.getElementById('txtIdSuma').value=sumaPositivos;
-	document.getElementById("txtIdProducto").value=multiplicacionNegativos;
 
+	if(flag == 0)
+	{
+		multiplicacionNegativos = 0;
+	}
+		
+	
+	document.getElementById("txtIdProducto").value=multiplicacionNegativos;
 }//FIN DE LA FUNCIÓN

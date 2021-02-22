@@ -1,4 +1,6 @@
 /*
+
+Cecilia Calanna while 10
 Al presionar el botón pedir  números  
 hasta que el usuario quiera, mostrar:
 1-Suma de los negativos.
@@ -13,9 +15,9 @@ hasta que el usuario quiera, mostrar:
 function mostrar()
 {
 	//declarar contadores y variables 
-	var respuesta;
-	var numeroIngresado;
-	var sumaNegativos=0;
+	let respuesta;
+	let numeroIngresado;
+	let sumaNegativos=0;
 	let contadorNegativos = 0;
 	let promedioNegativos;
 	let sumaPositivos=0;
@@ -54,22 +56,41 @@ function mostrar()
 		} 
 		// Diferencia entre positivos y negativos, (positvos-negativos)
 		diferencia = sumaPositivos - sumaNegativos;
-		//  calcular promedio de negativos y positivos
-		promedioNegativos = sumaNegativos / contadorNegativos;
-		promedioPositivos = sumaPositivos / contadorPositivos;
+		
 		
 		respuesta=prompt("desea continuar?");
 	}//fin del while
 
-	console.log(sumaNegativos);
-	console.log(sumaPositivos);
-	console.log(contadorNegativos);
-	console.log(contadorPositivos);
-	console.log(contadorCeros);
-	console.log(contadorPares);
-	console.log(promedioPositivos);
-	console.log(promedioNegativos);
-	console.log(diferencia);
+	//  calcular promedio de negativos y positivos
+	if(contadorNegativos == 0)  // valido para no dividir por 0
+	{
+		promedioNegativos = "no ingresaste negativos";
+	} else
+	{
+		promedioNegativos = sumaNegativos / contadorNegativos;
 
-	// document.write("la suma de negativos es :"+sumaNegativos);
+	}
+
+	if(contadorPositivos == 0) // valido para no dividir por 0
+	{
+		promedioPositivos = "no ingresaste positivos";
+	}else
+	{
+		promedioPositivos = sumaPositivos / contadorPositivos;
+
+	}
+
+
+
+	document.write("La suma de negativos es " + sumaNegativos + "<br>");
+	document.write("La suma de positivos es " +sumaPositivos + "<br>");
+	document.write("Ingresaste " + contadorNegativos + " negativos "  + "<br>");
+	document.write("Ingresaste " + contadorPositivos +" positivos "  + "<br>");
+	document.write("ingresaste " +contadorCeros + " ceros" + "<br>");
+	document.write("La cantidad de pares es " +contadorPares + "<br>");
+	document.write("El promedio de positivos es " +promedioPositivos + "<br>");
+	document.write("El promedio de negativos es " +promedioNegativos + "<br>");
+	document.write("La diferencia entre positivos y negativos es " +diferencia + "<br>");
+
+	
 }//FIN DE LA FUNCIÓN
