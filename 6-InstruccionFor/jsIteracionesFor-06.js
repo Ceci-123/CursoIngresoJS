@@ -1,36 +1,26 @@
 function mostrar()
 {
+
+	// Cecilia Calanna for 6
 	alert("ok");
 	let numeroPedido;
 	let contadorPares;
 	contadorPares = 0;
 	let i;
 	
-	numeroPedido = prompt("ingrese un numero o chau para salir");
-	/* if(numeroPedido == "chau") // quiero salir
-	{
-	  break;
-	} */
-
-	if(numeroPedido % 2 == 0)
-	{
-			for(i = numeroPedido; i == 0; i - 2) // bucle si es par
+	numeroPedido = prompt("ingrese un numero");
+	numeroPedido = parseInt(numeroPedido);
+	
+	for(i = 1 ; i < numeroPedido; i ++) 
+		{
+			if(i % 2 == 0) // si es par
 			{
 				alert(i);
-				contadorPares = numeroPedido / 2;
-			}
-			
-		} else
-		{
-			i = i-1;
-			alert(i);
-			contadorPares = (numeroPedido - 1) / 2;
-			// es impar
+				contadorPares = contadorPares + 1;
+			}	
+				
 		}
 		
-		
-	
-	
 	alert("el numero ingresado tiene pares" + contadorPares);
 
 

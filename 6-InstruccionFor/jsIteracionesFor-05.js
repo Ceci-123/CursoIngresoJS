@@ -2,19 +2,16 @@ function mostrar()
 {
 	alert("ok");
 	let respuesta;
-	let i;
-	for(i = 0; i < 10; i++)
+	for( ; ; )
 	{
 		
 		respuesta = prompt("ingresa un numero o 9 para salir");
+		alert(respuesta);
 		
 		if(respuesta == 9)
 		{
 			break;
-		} else
-		{
-			respuesta = prompt("ingresa un numero o 9 para salir");
-		}
+		} 
 		
 	}
 

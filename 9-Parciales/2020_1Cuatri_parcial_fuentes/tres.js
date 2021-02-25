@@ -1,75 +1,112 @@
 function mostrar()
 {
-	alert("tres");
+	// Cecilia Calanna practica de examen
+
 	let nombre;
 	let edad;
 	let sexo;
 	let estadoCivil;
-	let temperatura;
+	let temperaturaCorporal;
 	let respuesta;
-	let flagTemperatura = 0;
-	let mayorTemperatura = 0;
-	let nombreMayorTemperatura;
-	let contadorViudosMayores = 0;
-	let solterosViudosHombres = 0;
-	let viejosAfiebrados = 0;
-	let promedio = 0;
-	let acumuladorEdad = 0;
-	let contadorSolterosHombres = 0;
-	let contadorViudos = 0;
+	let mayorTemperatura;
+	let nombrePersonaConMasTemperatura;
+	let mayoresViudos;
+	let contadorHombreSolteroViudo;
+	let contadorMayoresFiebre;
+	let acumuladorEdad;
+	let contadorSolterosHombres;
+	let promedio;
 
 	respuesta = "si";
+	mayorTemperatura = 0;
+	mayoresViudos = 0;
+	contadorHombreSolteroViudo = 0;
+	contadorMayoresFiebre = 0;
+	acumuladorEdad = 0;
+	contadorSolterosHombres = 0;
 
 	while(respuesta == "si")
 	{
+		// pido nombre
 		nombre = prompt("ingrese su nombre");
-		edad = parseInt(prompt("ingrese su edad"));
-		sexo = prompt("ingrese sexo f o m");
-		while(sexo != "f" && sexo != "m")
+		while(isNaN(nombre)== false)
 		{
-			sexo = prompt("Error, ingrese sexo f o m");
+			nombre = prompt("Error, ingrese su nombre");
 		}
-		estadoCivil = prompt("ingrese estado civil soltero, casado o viudo");
-		while(estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo")
+
+		// pido edad
+		edad = parseInt(prompt("ingrese edad"));
+		while(isNaN(edad) == true)
 		{
-			estadoCivil = prompt("Error, ingrese estado civil soltero, casado o viudo");
+			edad = parseInt(prompt("Error, ingrese edad"));
 		}
-		temperatura = parseInt(prompt("ingrese temperatura"));
-		if(flagTemperatura == 0 || temperatura > mayorTemperatura )
+		// pido sexo ("f" o "m") 
+		sexo = prompt("ingrese su sexo f o m");
+		while(isNaN(sexo)== false || sexo != "m" && sexo != "f")
 		{
-			flagTemperatura = 1;
-			mayorTemperatura = temperatura;
-			nombreMayorTemperatura = nombre;
+			sexo = prompt("Error, ingrese su sexo f o m");
+		}
+		// pido estado civil("soltero", "casado" o "viudo")
+		estadoCivil = prompt("ingrese su estado civil soltero, casado o viudo");
+		while(isNaN(estadoCivil)== false || estadoCivil != "soltero" && estadoCivil != "casado" && estadoCivil != "viudo")
+		{
+			estadoCivil = prompt("ingrese su estado civil soltero, casado o viudo");
+		}
+		// pido temperatura
+		temperaturaCorporal = parseInt(prompt("ingrese temperatura"));
+		while(isNaN(temperaturaCorporal) == true)
+		{
+			temperaturaCorporal = parseInt(prompt("Error, ingrese temperatura"));
+		}
+
+		// averiguo nombre persona con mas temperatura
+		if(temperaturaCorporal > mayorTemperatura)
+		{
+			mayorTemperatura = temperaturaCorporal;
+			nombrePersonaConMasTemperatura = nombre;
 
 		}
-		respuesta = prompt("desea seguir ingresando datos? si no");
+		/////// 
+		switch(estadoCivil)
+		{
+			case "casado":
+			break;
+			case "soltero":
+				if(sexo == "m")   // guardo la edad para lo del promedio
+				{
+					acumuladorEdad = acumuladorEdad + edad;
+					contadorSolterosHombres = contadorSolterosHombres + 1;
+				}
+			break;
+			case "viudo":
+				if(edad > 17)
+				{
+					mayoresViudos = mayoresViudos + 1;
+				}
+			break;
 
-		if(edad > 21 && estadoCivil == "viudo") // contador de mayores viudos
+		}  // fin del switch
+		// cuento mayores con fiebre
+		if(edad > 59 && temperaturaCorporal > 38)
 		{
-			contadorViudosMayores = contadorViudosMayores + 1;
+			contadorMayoresFiebre = contadorMayoresFiebre + 1;
 		}
-		if((estadoCivil == "soltero" && sexo == "m") || (estadoCivil == "viudo" && sexo == "m")) // contador de solteros y viudos hombres
-		{
-			solterosViudosHombres = solterosViudosHombres + 1;
-		}
-		if(edad > 60 && temperatura > 38) // contador mas de 60 años y mas de 38 grados
-		{
-			viejosAfiebrados = viejosAfiebrados + 1;
-		}	
-		if(estadoCivil == "soltero" & sexo == "m") // promedio edad solteros hombres
-		{
-			acumuladorEdad = acumuladorEdad + edad;
-			contadorSolterosHombres = contadorSolterosHombres + 1;
 
-		}
-	} // fin del while de carga}
-	// calculo promedio edad de solteros hombres
+		///////
+		respuesta = prompt("desea seguir ingresando datos? si/no");
+
+		
+
+	}  // fin del while de ingreso
+
+	// promedio edad solteros
+
 	promedio = acumuladorEdad / contadorSolterosHombres;
 
-	alert("el nombre de la persona con mayor temperatura es" + nombreMayorTemperatura);
-	alert(" tenemos a bordo " + contadorViudos + "viudos")
-	alert("hombres solteros y viudos" + solterosViudosHombres);
-	alert(" hay hombres mayores con fiebre" + viejosAfiebrados);
-	alert("promedio de edad de hombres solteros" + promedio);
+
+
+	alert("La persona con mas temperatura es " + nombrePersonaConMasTemperatura + " tenemos a bordo " + mayoresViudos + " mayores viudos" + " tenemos" + contadorMayoresFiebre + " mayores con fiebre" + " y " + contadorHombreSolteroViudo + "hombres solteros o viudos" + " el promedio de edad de los hombres solteros es " + promedio);
+
+	
 
 }
