@@ -105,7 +105,7 @@ function mostrar()
 
 
 
-	alert("La persona con mas temperatura es " + nombrePersonaConMasTemperatura + " tenemos a bordo " + mayoresViudos + " mayores viudos" + " tenemos" + contadorMayoresFiebre + " mayores con fiebre" + " y " + contadorHombreSolteroViudo + "hombres solteros o viudos" + " el promedio de edad de los hombres solteros es " + promedio);
+	alert("La persona con mas temperatura es " + nombrePersonaConMasTemperatura + "\n tenemos a bordo " + mayoresViudos + " mayores viudos" + " tenemos" + contadorMayoresFiebre + " mayores con fiebre" + "\ y " + contadorHombreSolteroViudo + "hombres solteros o viudos" + " el promedio de edad de los hombres solteros es " + promedio);
 
 	
 

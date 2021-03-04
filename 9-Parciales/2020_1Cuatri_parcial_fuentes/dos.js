@@ -28,6 +28,9 @@ function mostrar()
   var acumuladorCal;
   var acumuladorArena;
   var tipoMasVendido;
+  var tipoMasCaroCemento;
+  var tipoMasCaroArena;
+  var tipoMasCaroCal;
   var tipoMasCaro;
 
 
@@ -39,6 +42,9 @@ function mostrar()
   acumuladorCal=0;
   acumuladorArena=0;
   cementoMasCaro = 0;
+  tipoMasCaroCemento = 0;
+  tipoMasCaroArena = 0;
+  tipoMasCaroCal = 0;
 
   while(respuesta == "si")
   {
@@ -71,21 +77,21 @@ function mostrar()
       case "cemento":
         if(acumuladorCemento == 0 || precioPorBolsa > tipoMasCaro)  // paso x primera vez o el precio es mayor
         {
-            tipoMasCaro = precioPorBolsa;
+            tipoMasCaroCemento = precioPorBolsa;
         }
         acumuladorCemento = acumuladorCemento + 1;
       break;
       case "cal":
         if(acumuladorCal == 0 || precioPorBolsa > tipoMasCaro)  // paso x primera vez o el precio es mayor
         {
-          tipoMasCaro = precioPorBolsa;
+          tipoMasCaroCal = precioPorBolsa;
         }
         acumuladorCal = acumuladorCal + 1;
       break;
       case "arena":
         if(acumuladorArena == 0 || precioPorBolsa > tipoMasCaro)  // paso x primera vez o el precio es mayor
         {
-          tipoMasCaro = precioPorBolsa;
+          tipoMasCaroArena = precioPorBolsa;
         }
         acumuladorArena = acumuladorArena + 1;
       break;
@@ -119,10 +125,21 @@ function mostrar()
       tipoMasVendido = "cal";
   }
 
+  if(tipoMasCaroArena > tipoMasCaroCemento && tipoMasCaroArena > tipoMasCaroCal)
+  {
+    tipoMasCaro = "arena";
+  } else if(tipoMasCaroCemento > tipoMasCaroCal)
+  {
+    tipoMasCaro = "cemento";
+  } else
+  {
+    tipoMasCaro ="cal";
+  }
+
    alert("el importe total a pagar es" + importeTotal);
    alert("el importe con descuento es " + importeConDescuento);
    alert("lo que mas se vendio es "+ tipoMasVendido);
-   alert("el tipo mas caro es " + )
+   alert("el tipo mas caro es " + tipoMasCaro);
 
   
 }
